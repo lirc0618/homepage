@@ -1,0 +1,21 @@
+.content.content-main
+	#card
+		.card-inner.fade
+			header
+				img(src=main.avatar.link width=main.avatar.width height=main.avatar.height alt="个人头像")
+				h1 #{main.name}
+				h2#signature(original-content=main.signature) #{main.signature}
+			ul
+				each item in main.ul
+					li
+						if item.href
+							a(href=item.href aria-label=item.text target="_blank" rel="noopener noreferrer")
+								i(class=`icon icon-${item.icon}` aria-hidden="true")
+								span #{item.text}
+						else
+							span.pending(title="链接待填写")
+								i(class=`icon icon-${item.icon}` aria-hidden="true")
+								span #{item.text} · 待填写
+			footer.credit
+				a(href="https://github.com/SimonAKing/HomePage" target="_blank" rel="noopener noreferrer") Based on SimonAKing / HomePage
+	canvas.grid-background#gridCanvas

@@ -1,0 +1,17 @@
+@import 'common/variable';
+@import 'common/common';
+@import 'common/icon';
+
+@import 'layout/layout';
+
+@import 'intro/intro';
+@import 'main/main';
+.enter { border: 0; padding: 12px 24px; cursor: pointer; font-family: inherit; }
+.enter:focus-visible { outline: 2px solid #bde4ff; outline-offset: 6px; border-radius: 4px; }
+#card .card-inner { padding: 24px; }
+#card .card-inner ul { padding-left: 0; }
+.pending { color: #93979e; }
+.credit { position: relative; z-index: 2; font-size: 12px; }
+.credit a { color: #93979e; }
+#card a:focus-visible { outline: 2px solid #bde4ff; outline-offset: 5px; }
+@media (max-width: 540px) { #card .card-inner ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; } }

@@ -1,0 +1,45 @@
+{
+  "head": {
+    "title": "lircOS",
+    "description": "lircOS 的个人主页 · 待更新",
+    "favicon": "assets/favicon.svg"
+  },
+  "intro": {
+    "title": "lircOS",
+    "subtitle": "待更新",
+    "enter": "探索我的主页",
+    "supportAuthor": true,
+    "background": true
+  },
+  "main": {
+    "name": "lircOS",
+    "signature": "待更新",
+    "avatar": {
+      "link": "assets/avatar.svg",
+      "height": "100",
+      "width": "100"
+    },
+    "ul": {
+      "first": {
+        "href": "",
+        "icon": "bokeyuan",
+        "text": "博客"
+      },
+      "second": {
+        "href": "",
+        "icon": "xiaolian",
+        "text": "关于"
+      },
+      "third": {
+        "href": "mailto:lircOS@163.com",
+        "icon": "email",
+        "text": "邮箱"
+      },
+      "fourth": {
+        "href": "https://github.com/lirc0618",
+        "icon": "github",
+        "text": "GitHub"
+      }
+    }
+  }
+}
