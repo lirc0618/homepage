@@ -20,26 +20,46 @@
       "width": "100"
     },
     "ul": {
-      "first": {
-        "href": "",
-        "icon": "bokeyuan",
-        "text": "博客"
+      "blog": {
+        "href": "blog/",
+        "icon": "blog",
+        "text": "Blog"
       },
-      "second": {
-        "href": "",
-        "icon": "xiaolian",
-        "text": "关于"
+      "thoughts": {
+        "href": "thoughts/",
+        "icon": "thoughts",
+        "text": "Thoughts"
       },
-      "third": {
-        "href": "mailto:lircOS@163.com",
-        "icon": "email",
-        "text": "邮箱"
+      "about": {
+        "href": "about/",
+        "icon": "about",
+        "text": "About"
       },
-      "fourth": {
-        "href": "https://github.com/lirc0618",
-        "icon": "github",
-        "text": "GitHub"
+      "gallery": {
+        "href": "gallery/",
+        "icon": "gallery",
+        "text": "Gallery"
+      },
+      "projects": {
+        "href": "projects/",
+        "icon": "projects",
+        "text": "Projects"
+      },
+      "thinking": {
+        "href": "thinking/",
+        "icon": "thinking",
+        "text": "Thinking"
       }
-    }
+    },
+    "social": [
+      {
+        "text": "GitHub",
+        "href": "https://github.com/lirc0618"
+      },
+      {
+        "text": "邮箱",
+        "href": "mailto:lircOS@163.com"
+      }
+    ]
   }
 }

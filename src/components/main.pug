@@ -1,3 +1,4 @@
+include channel-icon.pug
 .content.content-main
 	#card
 		.card-inner.fade
@@ -9,13 +10,16 @@
 				each item in main.ul
 					li
 						if item.href
-							a(href=item.href aria-label=item.text target="_blank" rel="noopener noreferrer")
-								i(class=`icon icon-${item.icon}` aria-hidden="true")
+							a(href=item.href aria-label=item.text target=(item.href.startsWith("https://") ? "_blank" : undefined) rel="noopener noreferrer")
+								+channelIcon(item.icon)
 								span #{item.text}
 						else
 							span.pending(title="链接待填写")
-								i(class=`icon icon-${item.icon}` aria-hidden="true")
+								+channelIcon(item.icon)
 								span #{item.text} · 待填写
+			.social-links
+				each item in main.social
+					a(href=item.href target="_blank" rel="noopener noreferrer") #{item.text}
 			footer.credit
 				a(href="https://github.com/SimonAKing/HomePage" target="_blank" rel="noopener noreferrer") Based on SimonAKing / HomePage
 	canvas.grid-background#gridCanvas

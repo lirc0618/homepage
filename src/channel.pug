@@ -1,0 +1,38 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title #{channel.title} · #{main.name}
+    meta(name="description" content=channel.description)
+    link(rel="icon" href="../assets/favicon.svg")
+    link(rel="stylesheet" href="../css/channels.css")
+  body
+    header.page-header
+      a.brand(href="../") #{main.name}
+      nav(aria-label="频道导航")
+        each item, slug in channels
+          a(href=`../${slug}/` aria-current=(slug === current ? 'page' : undefined)) #{item.title}
+    main.channel-page
+      p.eyebrow #{main.name} / #{channel.title}
+      h1 #{channel.title}
+      p.description #{channel.description}
+      if channel.items.length
+        .entries
+          each item in channel.items
+            article.entry
+              if item.date
+                time #{item.date}
+              h2 #{item.title}
+              if item.image
+                img(src=item.image alt=item.imageAlt || item.title loading="lazy")
+              if item.body
+                p.body #{item.body}
+              if item.href
+                a.entry-link(href=item.href) #{item.linkText || '查看详情'} ↗
+      else
+        .empty
+          span.empty-mark —
+          h2 待更新
+          p 更多内容即将在这里记录。
+      a.back(href="../") ← 返回主页

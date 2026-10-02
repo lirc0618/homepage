@@ -1,0 +1,42 @@
+{
+  "blog": {
+    "title": "Blog",
+    "description": "文章与记录",
+    "items": []
+  },
+  "thoughts": {
+    "title": "Thoughts",
+    "description": "随想与片段",
+    "items": []
+  },
+  "about": {
+    "title": "About",
+    "description": "关于我",
+    "items": [
+      {
+        "title": "lircOS",
+        "body": "待更新"
+      },
+      {
+        "title": "学术网站",
+        "body": "我的研究与学术经历。",
+        "href": "https://lirc0618.github.io/"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "照片与影像",
+    "items": []
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "作品与项目",
+    "items": []
+  },
+  "thinking": {
+    "title": "Thinking",
+    "description": "深入思考与探索",
+    "items": []
+  }
+}

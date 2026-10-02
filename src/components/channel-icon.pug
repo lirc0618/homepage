@@ -1,0 +1,7 @@
+mixin channelIcon(name)
+	- const paths = {blog:'M5 3h12v12M5 3v18h10m-7-13h6m-6 4h4m1 9 8-8-3-3-8 8v3z',thoughts:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0M8 9h.01M16 9h.01M7 14c2 4 8 4 10 0',about:'m2 10 20-8-6 20-4-8-10-4zm10 4L22 2',gallery:'M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-2 14 6-6 4 4 5-6 3 3M8 7h.01',projects:'M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z',thinking:'M9 18h6m-6 3h6M8 15c-5-5-2-12 4-12s9 7 4 12l-1 3H9zM12 0v1M2 4l2 2m16-2-2 2M0 11h2m20 0h2'}
+	if paths[name]
+		svg.channel-icon(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true")
+			path(d=paths[name])
+	else
+		i(class=`icon icon-${name}` aria-hidden="true")

@@ -52,13 +52,27 @@ gulp.task('pug', function () {
 		.pipe(gulp.dest('./dist'))
 })
 
+gulp.task('channels', function (done) {
+    const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'))
+    const channels = JSON.parse(fs.readFileSync('./content/channels.json', 'utf8'))
+    const renderer = require('pug')
+    for (const [slug, channel] of Object.entries(channels)) {
+        if (!/^[a-z0-9-]+$/.test(slug)) throw new Error('Invalid channel slug: ' + slug)
+        fs.mkdirSync('./dist/' + slug, { recursive: true })
+        fs.writeFileSync('./dist/' + slug + '/index.html', renderer.renderFile('./src/channel.pug', {
+            ...config, channels, channel, current: slug
+        }))
+    }
+    done()
+})
+
 gulp.task('assets', function () {
 	return gulp
 		.src(['./src/assets/**/*'])
 		.pipe(gulp.dest('./dist/assets'));
 })
 
-gulp.task('build', gulp.series('clean', 'assets', 'pug', 'css', 'js', 'html'))
+gulp.task('build', gulp.series('clean', 'assets', 'pug', 'channels', 'css', 'js', 'html'))
 gulp.task('default', gulp.series('build'))
 
 gulp.task('watch', function () {
@@ -66,8 +80,9 @@ gulp.task('watch', function () {
 	gulp.watch('./src/index.pug', gulp.parallel('pug'))
 	gulp.watch('./src/css/**/*.less', gulp.parallel(['css']))
 	gulp.watch('./src/js/*.js', gulp.parallel(['js']))
-	gulp.watch('./config.json', gulp.series('pug', 'html'))
+	gulp.watch('./config.json', gulp.series('pug', 'channels', 'html'))
 	gulp.watch('./src/assets/**/*', gulp.series('assets'))
+	gulp.watch(['./content/*.json', './src/channel.pug'], gulp.series('channels'))
 	connect.server({
 		root: 'dist',
 		livereload: true,
