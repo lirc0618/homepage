@@ -28,6 +28,8 @@ html(lang="zh-CN")
               if item.summary
                 p.body #{item.summary}
               a.entry-link(href=item.url) 阅读全文 →
+              if item.href && /^(https?:|mailto:)/.test(item.href)
+                a.entry-link(href=item.href target="_blank" rel="noopener noreferrer") #{item.metadata.linkText || '查看相关链接'} ↗
       else
         .empty
           span.empty-mark —
