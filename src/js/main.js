@@ -646,8 +646,8 @@ class GridAnimation {
 					Math.pow(this.canvas.height / dpr, 2)
 			) / 2
 		);
-		gradient.addColorStop(0, "rgba(6, 6, 6, 0)");
-		gradient.addColorStop(1, "#060606");
+		gradient.addColorStop(0, "rgba(226, 241, 247, 0)");
+		gradient.addColorStop(1, "rgba(226, 241, 247, 0.7)");
 
 		this.ctx.fillStyle = gradient;
 		this.ctx.fillRect(0, 0, this.canvas.width / dpr, this.canvas.height / dpr);
@@ -944,18 +944,18 @@ function loadMain() {
 					direction: "diagonal",
 					speed: isPhone ? 0.03 : 0.05,
 					borderColor: isPhone
-						? "rgba(255, 255, 255, 0.2)"
-						: "rgba(255, 255, 255, 0.1)",
+						? "rgba(24, 53, 80, 0.09)"
+						: "rgba(24, 53, 80, 0.07)",
 					squareSize: isPhone ? 50 : 40,
-					hoverFillColor: "rgba(255, 255, 255, 0.8)",
-					hoverShadowColor: "rgba(255, 255, 255, 0.8)",
+					hoverFillColor: "rgba(84, 154, 184, 0.18)",
+					hoverShadowColor: "rgba(84, 154, 184, 0.18)",
 					transitionDuration: isPhone ? 150 : 200, // 移动端更快的过渡
 					trailDuration: isPhone ? 2000 : 1500, // 移动端更长的痕迹
-					specialBlockColor: "rgba(100, 255, 152, 0.8)",
-					specialHoverColor: "rgba(29, 202, 29, 0.8)",
+					specialBlockColor: "rgba(56, 142, 142, 0.3)",
+					specialHoverColor: "rgba(38, 125, 125, 0.4)",
 					// 蛇身颜色渐变配置
-					snakeHeadColor: "rgba(255, 255, 255, 0.95)",
-					snakeTailColor: "rgba(218, 231, 255, 0.25)",
+					snakeHeadColor: "rgba(24, 98, 135, 0.5)",
+					snakeTailColor: "rgba(84, 154, 184, 0.15)",
 					snakeColorDecay: 0.85, // 颜色衰减系数
 					// 移动端特殊配置
 					touchSensitivity: isPhone ? 1.2 : 1.0, // 触摸灵敏度

@@ -25,7 +25,7 @@
 @media(max-width: 680px) { #card .card-inner ul { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 12px; } #card .card-inner ul li a { font-size: 16px; } }
 @media(max-height: 650px) { .content-main { overflow-y: auto; } #card { min-height: 600px; } }
 
-// Blue sky intro; the personal card keeps its existing dark palette.
+// Blue sky intro.
 .content-intro .content-inner { background: linear-gradient(180deg, #82c6e1 0%, #c7e4ee 55%, #f5f4ed 100%); }
 #cloud-background { position: absolute; inset: 0; pointer-events: none; }
 .content-intro .wrap { position: relative; z-index: 1; }
@@ -36,3 +36,15 @@
 .content-intro .enter:focus-visible { outline-color: #183550; }
 .content-intro .arrow:before, .content-intro .arrow:after { background: #183550; box-shadow: none; }
 @media(prefers-reduced-motion: reduce) { .content-intro .arrow { animation: none; opacity: 1; } .fade { transition: none; } }
+
+// Continue the sky palette through the card and channel pages.
+body { background: #e2f1f7; }
+#card { color: #526b80; }
+#card .card-inner header h1 { color: #183550; }
+#card .card-inner header h2 { color: #526b80; font-weight: 400; }
+#card .card-inner header img { box-shadow: 0 8px 28px #18355015; }
+#card .card-inner ul li a { color: #385a74; }
+#card .card-inner ul li a:hover { color: #126387; text-shadow: none; }
+.social-links a, .credit a, .pending { color: #526b80; }
+.social-links a:hover, .credit a:hover { color: #126387; }
+#card a:focus-visible { outline-color: #126387; }
