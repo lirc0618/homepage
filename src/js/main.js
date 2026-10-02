@@ -922,9 +922,9 @@ function switchPage() {
 		easing: "easeOutQuad",
 		d: DOM.path.getAttribute("pathdata:id"),
 		complete: function (anim) {
-			if (typeof animationID !== "undefined") cancelAnimationFrame(animationID);
-			const backgroundCanvas = document.getElementById("background");
-			if (backgroundCanvas) backgroundCanvas.remove();
+			if (window.destroyIntroBackground) window.destroyIntroBackground();
+			const backgroundElement = document.getElementById("cloud-background");
+			if (backgroundElement) backgroundElement.remove();
 		},
 	});
 
