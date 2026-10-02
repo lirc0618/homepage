@@ -14,6 +14,7 @@ const less = require('gulp-less')
 const fs = require('fs')
 const path = require('path')
 const crypto = require('crypto')
+const { buildContent } = require('./scripts/content.cjs')
 
 function templateData() {
     const hash = crypto.createHash('sha256')
@@ -30,7 +31,7 @@ function templateData() {
 }
 
 gulp.task('clean', function () {
-	return del(['./dist/css/', './dist/js/'])
+	return del(['./dist/**', '!./dist'])
 })
 
 gulp.task('css', function () {
@@ -69,16 +70,7 @@ gulp.task('pug', function () {
 })
 
 gulp.task('channels', function (done) {
-    const config = templateData()
-    const channels = JSON.parse(fs.readFileSync('./content/channels.json', 'utf8'))
-    const renderer = require('pug')
-    for (const [slug, channel] of Object.entries(channels)) {
-        if (!/^[a-z0-9-]+$/.test(slug)) throw new Error('Invalid channel slug: ' + slug)
-        fs.mkdirSync('./dist/' + slug, { recursive: true })
-        fs.writeFileSync('./dist/' + slug + '/index.html', renderer.renderFile('./src/channel.pug', {
-            ...config, channels, channel, current: slug
-        }))
-    }
+    buildContent({ contentRoot: './content', outputRoot: './dist', templateRoot: './src', templateData: templateData() })
     done()
 })
 
@@ -98,7 +90,7 @@ gulp.task('watch', function () {
 	gulp.watch('./src/js/*.js', gulp.series('js', 'pug', 'channels', 'html'))
 	gulp.watch('./config.json', gulp.series('pug', 'channels', 'html'))
 	gulp.watch('./src/assets/**/*', gulp.series('assets'))
-	gulp.watch(['./content/*.json', './src/channel.pug'], gulp.series('channels'))
+	gulp.watch(['./content/**/*', './src/channel.pug', './src/article.pug'], gulp.series('channels'))
 	connect.server({
 		root: 'dist',
 		livereload: true,

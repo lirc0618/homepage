@@ -1,0 +1,28 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title #{note.title} · #{main.name}
+    meta(name="description" content=note.summary)
+    link(rel="icon" href=`${rootPrefix}assets/favicon.svg`)
+    link(rel="stylesheet" href=`${rootPrefix}css/channels.css?v=${assetVersion}`)
+  body
+    header.page-header
+      a.brand(href=rootPrefix) #{main.name}
+      nav(aria-label="频道导航")
+        each item, slug in channels
+          a(href=`${rootPrefix}${slug}/` aria-current=(slug === current ? 'page' : undefined)) #{item.title}
+    main.channel-page.article-page
+      p.eyebrow
+        a(href=`${rootPrefix}${current}/`) #{channel.title}
+      article
+        h1.article-title #{note.title}
+        if note.date
+          time.article-date(datetime=note.date) #{note.date}
+        if note.image
+          img.article-cover(src=note.image alt=note.metadata.imageAlt || note.title)
+        .markdown-body!= note.html
+        if note.href
+          a.entry-link(href=note.href) #{note.metadata.linkText || '查看相关链接'} ↗
+      a.back(href=`${rootPrefix}${current}/`) ← 返回 #{channel.title}
