@@ -12,6 +12,22 @@ const pug = require('gulp-pug')
 const less = require('gulp-less')
 
 const fs = require('fs')
+const path = require('path')
+const crypto = require('crypto')
+
+function templateData() {
+    const hash = crypto.createHash('sha256')
+    function visit(directory) {
+        for (const name of fs.readdirSync(directory).sort()) {
+            const file = path.join(directory, name)
+            if (fs.statSync(file).isDirectory()) visit(file)
+            else { hash.update(file); hash.update(fs.readFileSync(file)) }
+        }
+    }
+    visit('./src')
+    hash.update(fs.readFileSync('./config.json'))
+    return { ...JSON.parse(fs.readFileSync('./config.json', 'utf8')), assetVersion: hash.digest('hex').slice(0, 12) }
+}
 
 gulp.task('clean', function () {
 	return del(['./dist/css/', './dist/js/'])
@@ -48,12 +64,12 @@ gulp.task('js', function () {
 gulp.task('pug', function () {
 	return gulp
 		.src('./src/index.pug')
-		.pipe(pug({ data: JSON.parse(fs.readFileSync('./config.json', 'utf8')) }))
+		.pipe(pug({ data: templateData() }))
 		.pipe(gulp.dest('./dist'))
 })
 
 gulp.task('channels', function (done) {
-    const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'))
+    const config = templateData()
     const channels = JSON.parse(fs.readFileSync('./content/channels.json', 'utf8'))
     const renderer = require('pug')
     for (const [slug, channel] of Object.entries(channels)) {
@@ -78,8 +94,8 @@ gulp.task('default', gulp.series('build'))
 gulp.task('watch', function () {
 	gulp.watch('./src/components/*.pug', gulp.parallel('pug'))
 	gulp.watch('./src/index.pug', gulp.parallel('pug'))
-	gulp.watch('./src/css/**/*.less', gulp.parallel(['css']))
-	gulp.watch('./src/js/*.js', gulp.parallel(['js']))
+	gulp.watch('./src/css/**/*.less', gulp.series('css', 'pug', 'channels', 'html'))
+	gulp.watch('./src/js/*.js', gulp.series('js', 'pug', 'channels', 'html'))
 	gulp.watch('./config.json', gulp.series('pug', 'channels', 'html'))
 	gulp.watch('./src/assets/**/*', gulp.series('assets'))
 	gulp.watch(['./content/*.json', './src/channel.pug'], gulp.series('channels'))
