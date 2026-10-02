@@ -3,7 +3,8 @@ include channel-icon.pug
 	#card
 		.card-inner.fade
 			header
-				img(src=main.avatar.link width=main.avatar.width height=main.avatar.height alt="个人头像")
+				.avatar-frame(style=`width:${main.avatar.width}px;height:${main.avatar.height}px`)
+					img(src=main.avatar.link width=main.avatar.width height=main.avatar.height alt="个人头像" style=`transform:scale(${main.avatar.zoom || 1});transform-origin:${main.avatar.positionX || "50%"} ${main.avatar.positionY || "50%"}`)
 				h1 #{main.name}
 				h2#signature(original-content=main.signature) #{main.signature}
 			ul

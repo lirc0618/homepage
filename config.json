@@ -16,8 +16,11 @@
     "signature": "待更新",
     "avatar": {
       "link": "assets/lircos-avatar.jpg",
-      "height": "100",
-      "width": "100"
+      "height": "140",
+      "width": "140",
+      "zoom": 2.8,
+      "positionX": "64%",
+      "positionY": "84%"
     },
     "ul": {
       "blog": {
