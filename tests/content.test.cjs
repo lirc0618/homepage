@@ -45,6 +45,7 @@ test('publishes only opted-in notes and referenced attachments; removes stale pa
     f.write('blog/公开.md', '---\npublish: true\n---\n公开正文')
     f.write('blog/草稿.md', '---\npublish: false\n---\nPRIVATE_DRAFT')
     f.write('blog/未标记.md', 'UNMARKED_NOTE')
+    f.write('blog/空属性.md', '---\n---\nEMPTY_PROPERTIES')
     f.write('assets/unused.txt', 'PRIVATE_ATTACHMENT')
     f.write('.obsidian/workspace.json', 'PRIVATE_SETTINGS')
     f.write('_templates/模板.md', '---\npublish: true\n---\nTEMPLATE')

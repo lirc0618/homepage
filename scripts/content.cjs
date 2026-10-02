@@ -10,7 +10,7 @@ const headingId = text => text.normalize('NFKC').toLowerCase().replace(/[^\p{L}\
 function parseNote(source, file) {
     source = source.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n')
     if (!source.startsWith('---\n')) return { metadata: {}, body: source }
-    const end = source.indexOf('\n---', 4)
+    const end = source.indexOf('\n---', 3)
     if (end < 0 || !/^\n---(?:\n|$)/.test(source.slice(end))) throw new Error(`${file}: YAML 属性没有以 --- 结束`)
     const metadata = yaml.load(source.slice(4, end), { schema: yaml.CORE_SCHEMA, filename: file }) || {}
     if (typeof metadata !== 'object' || Array.isArray(metadata)) throw new Error(`${file}: 属性必须是 YAML 对象`)
