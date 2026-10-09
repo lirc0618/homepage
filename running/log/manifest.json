@@ -1,0 +1,113 @@
+{
+  "_activities-0f8fe1d1.js": {
+    "file": "assets/activities-0f8fe1d1.js"
+  },
+  "_vendors-f5304e83.js": {
+    "css": [
+      "assets/vendors-2b661aa2.css"
+    ],
+    "file": "assets/vendors-f5304e83.js"
+  },
+  "assets/end.svg": {
+    "file": "assets/end-cb10f6a5.svg",
+    "src": "assets/end.svg"
+  },
+  "assets/github.svg": {
+    "assets": [
+      "assets/github-ee3fea74.svg"
+    ],
+    "file": "assets/github.svg-88879b77.js",
+    "imports": [
+      "_vendors-f5304e83.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/github.svg"
+  },
+  "assets/grid.svg": {
+    "assets": [
+      "assets/grid-af6dfdab.svg"
+    ],
+    "file": "assets/grid.svg-40737ad4.js",
+    "imports": [
+      "_vendors-f5304e83.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/grid.svg"
+  },
+  "assets/start.svg": {
+    "file": "assets/start-19ae77c3.svg",
+    "src": "assets/start.svg"
+  },
+  "assets/year_2021.svg": {
+    "assets": [
+      "assets/year_2021-3559d3a8.svg"
+    ],
+    "file": "assets/year_2021-668cb9b7.js",
+    "imports": [
+      "_vendors-f5304e83.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/year_2021.svg"
+  },
+  "assets/year_2022.svg": {
+    "assets": [
+      "assets/year_2022-1d5341f5.svg"
+    ],
+    "file": "assets/year_2022-4eae3373.js",
+    "imports": [
+      "_vendors-f5304e83.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/year_2022.svg"
+  },
+  "assets/year_2023.svg": {
+    "assets": [
+      "assets/year_2023-639447c2.svg"
+    ],
+    "file": "assets/year_2023-f886ea97.js",
+    "imports": [
+      "_vendors-f5304e83.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/year_2023.svg"
+  },
+  "assets/year_2024.svg": {
+    "assets": [
+      "assets/year_2024-5d8d5a1c.svg"
+    ],
+    "file": "assets/year_2024-adfa2099.js",
+    "imports": [
+      "_vendors-f5304e83.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/year_2024.svg"
+  },
+  "index.css": {
+    "file": "assets/index-a2c28319.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "css": [
+      "assets/index-a2c28319.css"
+    ],
+    "dynamicImports": [
+      "assets/year_2021.svg",
+      "assets/year_2022.svg",
+      "assets/year_2023.svg",
+      "assets/year_2024.svg",
+      "assets/github.svg",
+      "assets/grid.svg"
+    ],
+    "file": "assets/index-50daadf4.js",
+    "imports": [
+      "_vendors-f5304e83.js",
+      "_activities-0f8fe1d1.js"
+    ],
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "vendors.css": {
+    "file": "assets/vendors-2b661aa2.css",
+    "src": "vendors.css"
+  }
+}
